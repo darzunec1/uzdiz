@@ -3,16 +3,24 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Datoteke\" />
-    <Folder Include="Singleton\" />
-    <Folder Include="Config\" />
-    <Folder Include="Log\" />
+    <Folder Include="org\" />
+    <Folder Include="org\foi\" />
+    <Folder Include="org\foi\uzdiz\" />
+    <Folder Include="org\foi\uzdiz\dzunec\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Composite\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Config\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Datoteke\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Log\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Models\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Singleton\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Methods\UnosKorisnika.cs" />
+    <Compile Remove="Models\Podrucje.cs" />
   </ItemGroup>
 </Project>
