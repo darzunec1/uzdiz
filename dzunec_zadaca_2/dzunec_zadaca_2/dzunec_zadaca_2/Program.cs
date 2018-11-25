@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using dzunec_zadaca_2.Models;
 
 namespace dzunec_zadaca_2
 {
@@ -37,7 +38,15 @@ namespace dzunec_zadaca_2
             Citac citac = new Citac();
             citac.UcitajUlice(citac.ProcitajDatoteku(singletonParametri.DohvatiParametar("ulice")));
             citac.UcitajSpremnike(citac.ProcitajDatoteku(singletonParametri.DohvatiParametar("spremnici")));
-             System.Console.ReadKey();
+
+
+            List<Spremnik> listaSpremnika = citac.GenerirajSpremnike();
+
+            Spremnik neki = listaSpremnika[1];
+            int b = 6;
+            b = 9;
+
+            System.Console.ReadKey();
 
         }
     }

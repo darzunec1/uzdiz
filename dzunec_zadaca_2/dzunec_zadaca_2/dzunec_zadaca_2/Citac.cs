@@ -87,18 +87,69 @@ namespace dzunec_zadaca_2
                 VrstaSpremnik s = new VrstaSpremnik(polje);
                 ListaVrstaSpremnika.Add(s);
             }
-            foreach (var vrsta in ListaVrstaSpremnika)
-            {
-                foreach (var ulica in ListaUlica)
-                {
-                    Spremnik s = new Spremnik();
-                    foreach (var korisnik in ulica.ListaMalihKorisnika)
-                    {
-                        s.ListaMalihKorisnika.Add(korisnik);
+        }
 
+        public List<Spremnik> GenerirajSpremnike ()
+        {
+            List<Spremnik> listaSpremnika = new List<Spremnik>();
+            int spremnikId = 1;
+            foreach (var ulica in ListaUlica)
+            {
+                foreach (var vrstaSpremnika in ListaVrstaSpremnika)
+                {
+                    for (int i = 0; i < ulica.ListaMalihKorisnika.Count;)
+                    {
+                        Spremnik s = new Spremnik();
+                        s.Id = spremnikId++;
+                        s.Naziv = vrstaSpremnika.Naziv;
+                        int brojac = 1;
+
+                        while (brojac < vrstaSpremnika.BrojMalih && i < ulica.ListaMalihKorisnika.Count)
+                        {
+                            Korisnik k = ulica.ListaMalihKorisnika[i];
+                            s.ListaKorisnika.Add(k);
+                            brojac++;
+                            i++;
+                        }
+                        listaSpremnika.Add(s);
+                    }
+
+                    for (int i = 0; i < ulica.ListaSrednjihKorisnika.Count;)
+                    {
+                        Spremnik s = new Spremnik();
+                        s.Id = spremnikId++;
+                        s.Naziv = vrstaSpremnika.Naziv;
+                        int brojac = 1;
+
+                        while (brojac < vrstaSpremnika.BrojSrednjih && i < ulica.ListaSrednjihKorisnika.Count)
+                        {
+                            Korisnik k = ulica.ListaSrednjihKorisnika[i];
+                            s.ListaKorisnika.Add(k);
+                            brojac++;
+                            i++;
+                        }
+                        listaSpremnika.Add(s);
+                    }
+
+                    for (int i = 0; i < ulica.ListaVelikihKorisnika.Count;)
+                    {
+                        Spremnik s = new Spremnik();
+                        s.Id = spremnikId++;
+                        s.Naziv = vrstaSpremnika.Naziv;
+                        int brojac = 1;
+
+                        while (brojac < vrstaSpremnika.BrojSrednjih && i < ulica.ListaVelikihKorisnika.Count)
+                        {
+                            Korisnik k = ulica.ListaVelikihKorisnika[i];
+                            s.ListaKorisnika.Add(k);
+                            brojac++;
+                            i++;
+                        }
+                        listaSpremnika.Add(s);
                     }
                 }
             }
+            return listaSpremnika;
         }
 
 
