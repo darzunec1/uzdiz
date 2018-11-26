@@ -8,4 +8,4 @@ u6;Tina Ujevića;27;90;10;00
 u7;Ruđera Boškovića;28;50;20;30
 u8;Dravska;12;100;0;00
 u11;Varaždinska;30;80;20;0
-u12;Braće Radića;36;70;30;0
+u12;Braće Radića;36;70:30;0

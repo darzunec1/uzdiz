@@ -37,10 +37,18 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
             Console.WriteLine("---------------------------------------------------");
             foreach (string red in sadrzajDatoteke.Skip(1))
             {
-                string[] polje = red.Split(';');
-                Console.WriteLine("\t" + red);
-                Ulica u = new Ulica(polje);
-                ListaUlica.Add(u);
+                try
+                {
+                    string[] polje = red.Split(';');
+                    Console.WriteLine("\t" + red);
+                    Ulica u = new Ulica(polje);
+                    ListaUlica.Add(u);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Neispravan redak!!!! " + ex.Message);
+                }
+
               
             }
 
@@ -88,11 +96,11 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                 ListaVrstaSpremnika.Add(s);
             }
         }
-
+        int spremnikId = 1;
         public List<Spremnik> GenerirajSpremnikeMali ()
         {
             List<Spremnik> listaSpremnika = new List<Spremnik>();
-            int spremnikId = 1;
+
             foreach (var ulica in ListaUlica)
             {
                 foreach (var vrstaSpremnika in ListaVrstaSpremnika)
@@ -107,6 +115,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         Spremnik s = new Spremnik();
                         s.Id = spremnikId++;
                         s.Naziv = vrstaSpremnika.Naziv;
+                        s.Nosivost = vrstaSpremnika.Nosivost;
                         int brojac = 1;
 
                         while (brojac <= vrstaSpremnika.BrojMalih && i < ulica.ListaMalihKorisnika.Count)
@@ -127,7 +136,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
         public List<Spremnik> GenerirajSpremnikeSrednji()
         {
             List<Spremnik> listaSpremnika = new List<Spremnik>();
-            int spremnikId = 1;
             foreach (var ulica in ListaUlica)
             {
                 foreach (var vrstaSpremnika in ListaVrstaSpremnika)
@@ -142,6 +150,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         Spremnik s = new Spremnik();
                         s.Id = spremnikId++;
                         s.Naziv = vrstaSpremnika.Naziv;
+                        s.Nosivost = vrstaSpremnika.Nosivost;
                         int brojac = 1;
 
                         while (brojac <= vrstaSpremnika.BrojSrednjih && i < ulica.ListaSrednjihKorisnika.Count)
@@ -162,7 +171,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
         public List<Spremnik> GenerirajSpremnikeVeliki()
         {
             List<Spremnik> listaSpremnika = new List<Spremnik>();
-            int spremnikId = 1;
+
             foreach (var ulica in ListaUlica)
             {
                 foreach (var vrstaSpremnika in ListaVrstaSpremnika)
@@ -177,6 +186,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         Spremnik s = new Spremnik();
                         s.Id = spremnikId++;
                         s.Naziv = vrstaSpremnika.Naziv;
+                        s.Nosivost = vrstaSpremnika.Nosivost;
                         int brojac = 1;
 
                         while (brojac <= vrstaSpremnika.BrojVelikih && i < ulica.ListaVelikihKorisnika.Count)
