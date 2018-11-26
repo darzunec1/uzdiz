@@ -18,6 +18,7 @@
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Log\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Models\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Singleton\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Helper\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Methods\UnosKorisnika.cs" />
