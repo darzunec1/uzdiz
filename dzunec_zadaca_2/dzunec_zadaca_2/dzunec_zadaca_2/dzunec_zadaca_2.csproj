@@ -12,16 +12,22 @@
     <Folder Include="org\foi\uzdiz\" />
     <Folder Include="org\foi\uzdiz\dzunec\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\" />
-    <Folder Include="org\foi\uzdiz\dzunec\dz2\Composite\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Config\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Datoteke\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Log\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Models\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Singleton\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Helper\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Composite\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Ispis\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Decorator\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Methods\UnosKorisnika.cs" />
     <Compile Remove="Models\Podrucje.cs" />
+    <Compile Remove="org\foi\uzdiz\dzunec\dz2\Models\Korisnik.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="org\foi\uzdiz\dzunec\dz2\Log\izlaz.txt" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,11 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 
         public float KolicinaOtpada { get; set; }
 
-        public List<Korisnik> ListaKorisnika { get; set; } = new List<Korisnik>();
+        public string Status { get; set; }
+
+        public string PripadaUlici { get; set; }
+
+        public List<KorisnikB> ListaKorisnika { get; set; } = new List<KorisnikB>();
 
         public Spremnik()
         {

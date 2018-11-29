@@ -23,11 +23,15 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 
         public double BrojVeliki { get; set; }
 
-        public List<Korisnik> ListaMalihKorisnika { get; set; } = new List<Korisnik>();
+        public List<KorisnikB> ListaMalihKorisnika { get; set; } = new List<KorisnikB>();
 
-        public List<Korisnik> ListaSrednjihKorisnika { get; set; } = new List<Korisnik>();
+        public List<KorisnikB> ListaSrednjihKorisnika { get; set; } = new List<KorisnikB>();
 
-        public List<Korisnik> ListaVelikihKorisnika { get; set; } = new List<Korisnik>();
+        public List<KorisnikB> ListaVelikihKorisnika { get; set; } = new List<KorisnikB>();
+
+        public List<Spremnik> ListaSpremnikaUlice { get; set; } = new List<Spremnik>();
+
+        public List<float> ListaOtpadaUlica { get; set; } = new List<float>();
 
 
         public Ulica(string[] input)
@@ -44,7 +48,54 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
             BrojVeliki = Math.Round(BrojMjesta * (double) UdioVeliki / 100, MidpointRounding.AwayFromZero);
 
         }
+        public List<float> UlicaOtpad(Ulica u)
+        {
+            float ukupnoStaklo = 0;
+            float ukupnoPapir = 0;
+            float ukupnoMetal = 0;
+            float ukupnoBio = 0;
+            float ukupnoMjesano = 0;
 
+
+
+            foreach (var ulica in u.ListaSpremnikaUlice)
+            {
+
+                foreach (var spremnik in ListaSpremnikaUlice)
+                {
+                    if (spremnik.Naziv == "staklo")
+                    {
+                        ukupnoStaklo += spremnik.KolicinaOtpada;
+                    }
+                    else if (spremnik.Naziv == "bio")
+                    {
+                        ukupnoBio += spremnik.KolicinaOtpada;
+                    }
+                    else if (spremnik.Naziv == "metal")
+                    {
+                        ukupnoMetal += spremnik.KolicinaOtpada;
+                    }
+                    else if (spremnik.Naziv == "papir")
+                    {
+                        ukupnoPapir += spremnik.KolicinaOtpada;
+                    }
+                    else if (spremnik.Naziv == "mješano")
+                    {
+                        ukupnoMjesano += spremnik.KolicinaOtpada;
+                    }
+                }
+            }
+
+            List<float> listaOtpadUlica = new List<float>();
+            listaOtpadUlica.Add(ukupnoStaklo);
+            listaOtpadUlica.Add(ukupnoPapir);
+            listaOtpadUlica.Add(ukupnoMetal);
+            listaOtpadUlica.Add(ukupnoBio);
+            listaOtpadUlica.Add(ukupnoMjesano);
+
+            ListaOtpadaUlica = listaOtpadUlica;
+            return listaOtpadUlica;
+        }
 
         public Ulica()
         {
