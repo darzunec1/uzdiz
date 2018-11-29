@@ -28,7 +28,8 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
             {
                 if (podrucje.Id.StartsWith('u'))
                 {
-                    UlicaPodrucja up = new UlicaPodrucja(podrucje.Id, podrucje.Naziv);
+                    Ulica ulica = Citac.ListaUlica.FirstOrDefault(p => p.Id == podrucje.Id);
+                    UlicaPodrucja up = new UlicaPodrucja(podrucje.Id, podrucje.Naziv, ulica);
                     listUlicaPod.Add(up);
                 }
                 else
@@ -47,16 +48,16 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                 {
                     if (dioPodrucjaId.StartsWith('u'))
                     {
-                        string NazivUlice = "nema";
+                        Ulica ulicaObjekt = new Ulica();
                         foreach (var ulica in Citac.ListaUlica)
                         {
                             if (ulica.Id == dioPodrucjaId)
                             {
-                                NazivUlice = ulica.Naziv;
+                                ulicaObjekt = ulica;
                             }
                         }
 
-                        UlicaPodrucja ulicaPodrucjaObjekt = new UlicaPodrucja(dioPodrucjaId, NazivUlice);
+                        UlicaPodrucja ulicaPodrucjaObjekt = new UlicaPodrucja(dioPodrucjaId, ulicaObjekt.Naziv, ulicaObjekt);
                         if (ulicaPodrucjaObjekt != null)
                         {
                             podrucjeComposit.Dodijeli(ulicaPodrucjaObjekt);

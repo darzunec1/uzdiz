@@ -62,7 +62,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
             Ispis.IspisSpremnikaPoUlicama();
             Ispis.IspisUlicaOtpad();
-            IzracunUlicaOtpad.IzracunOtpadaPoUlicama();
+
 
             DodjelaPodrucja.DodijeliPotpodrucja();
 

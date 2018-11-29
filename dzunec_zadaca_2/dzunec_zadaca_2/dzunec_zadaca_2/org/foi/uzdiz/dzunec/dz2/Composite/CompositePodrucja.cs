@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Composite;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Composite
 {
@@ -33,10 +34,12 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
         }
 
         public class UlicaPodrucja : PodrucjeK
-        { 
-            public UlicaPodrucja(string Id, string Naziv) : base(Id, Naziv)
-            {
+        {
+            Ulica Ulica;
 
+            public UlicaPodrucja(string Id, string Naziv, Ulica ulica) : base(Id, Naziv)
+            {
+                Ulica = ulica;
             }
 
             public override void Dodijeli(PodrucjeK podrucje) => throw new NotImplementedException();
