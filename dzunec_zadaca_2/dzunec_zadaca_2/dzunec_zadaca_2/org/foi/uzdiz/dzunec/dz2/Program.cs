@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Collections.Generic;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Composite;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispis;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Decorator;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
+using static org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Decorator.Decorator;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 {
@@ -55,7 +60,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
             GeneriranjeSpremnikaOtpada.DodjelaOtpadaKorisnicima(singletonParametri, genSlucajnihBrojeva);
 
             //Generiranje otpada korisnicima
-     
+
             Ispis.IspisKorisnikaOtpad();
 
             OdlaganjeOtpada.KorisniciOdlazuOtpad();
@@ -64,15 +69,16 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
             Ispis.IspisUlicaOtpad();
 
 
+
             DodjelaPodrucja.DodijeliPotpodrucja();
+
+            Ispis.OtpadPoPodrucju();
 
             Odvoz.ProvediNaredbe();
 
-            foreach (var podrucje in DodjelaPodrucja.listaCom)
-            {
-                podrucje.Ispis(1);
-                break;
-            }
+            //ispis podrucja
+
+            PonudaKontejnera.Ponuda();
 
             System.Console.ReadKey();
 
@@ -80,4 +86,5 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
 
     }
+
 }

@@ -48,6 +48,10 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
             {
                 Console.WriteLine(new String('-', uvlaka) + " " + Naziv);
             }
+            public List<float> DajSmece()
+            {
+                return Ulica.ListaOtpadaUlica;
+            }
 
             public override void Odbaci(PodrucjeK podrucje) => throw new NotImplementedException();
 

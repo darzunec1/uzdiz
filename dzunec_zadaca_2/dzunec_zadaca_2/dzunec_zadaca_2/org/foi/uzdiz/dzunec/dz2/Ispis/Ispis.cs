@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Composite;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper;
+
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispis
 {
     public class Ispis
@@ -75,6 +78,19 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
                 }
             }
 
+        }
+
+        public static void OtpadPoPodrucju()
+        {
+            Console.WriteLine("Ispis područja: ");
+
+            foreach (var podrucje in DodjelaPodrucja.listaCom)
+            {
+                podrucje.Ispis(1);
+                break;
+            }
+
+            var svaPodrucja = DodjelaPodrucja.listaCom[0];
         }
 
         public static void IspisUlicaOtpad()
