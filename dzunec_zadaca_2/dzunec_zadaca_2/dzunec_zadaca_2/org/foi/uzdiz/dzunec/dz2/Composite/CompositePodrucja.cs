@@ -18,8 +18,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
 
             public string Naziv;
 
-            public List<Podrucje> listaPodrucja;
-
             public PodrucjeK(string Id, string naziv)
             {
                 PodrucjeID = Id;
@@ -31,6 +29,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
             public abstract void Odbaci(PodrucjeK podrucje);
 
             public abstract void Ispis(int uvlaka);
+
         }
 
         public class UlicaPodrucja : PodrucjeK
@@ -47,6 +46,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
             public override void Ispis(int uvlaka)
             {
                 Console.WriteLine(new String('-', uvlaka) + " " + Naziv);
+
             }
             public List<float> DajSmece()
             {
@@ -61,6 +61,8 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
         public class PodrucjeCom : PodrucjeK
         {
             public List<PodrucjeK> podrucja = new List<PodrucjeK>();
+
+            public List<UlicaPodrucja> ulicaPodrucja = new List<UlicaPodrucja>();
 
             public PodrucjeCom(string Id, string Naziv) : base(Id, Naziv)
             {

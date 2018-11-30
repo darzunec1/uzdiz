@@ -73,6 +73,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
             DodjelaPodrucja.DodijeliPotpodrucja();
 
             Ispis.OtpadPoPodrucju();
+            Ispis.DododajPodrucjaUUlice();
 
             Odvoz.ProvediNaredbe();
 

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Composite;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Composite;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper;
+using static org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Composite.CompositePodrucja;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispis
 {
@@ -90,7 +94,56 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
                 break;
             }
 
-            var svaPodrucja = DodjelaPodrucja.listaCom[0];
+            foreach (var ulica in DodjelaPodrucja.listUlicaPod)
+            {
+
+                Podrucje podrucje = Citac.ListaPodrucja.FirstOrDefault(p => p.Id == ulica.PodrucjeID);
+                if (podrucje != null)
+                {
+                    podrucje.listaUlica.Add(ulica);
+                }
+
+            }
+
+        }
+        public static void DododajPodrucjaUUlice()
+        {
+            foreach (var ulica in Citac.ListaUlica)
+            {
+                foreach (var podrucjeNajdonjeRazine in DodjelaPodrucja.listaCom)
+                {
+                    UlicaPodrucja ulicaNadjena = (UlicaPodrucja) podrucjeNajdonjeRazine.podrucja.FirstOrDefault(u => u.PodrucjeID == ulica.Id);
+
+                    if (ulicaNadjena == null)
+                    {
+                        continue;
+                    }
+
+                    podrucjeNajdonjeRazine.ulicaPodrucja.Add(ulicaNadjena);
+                    PodrucjeCom podrucjeIduceRazine = new PodrucjeCom("", "");
+                    var podrucjeNajdonjeRazinePom = podrucjeNajdonjeRazine;
+                    while (podrucjeIduceRazine != null)
+                    {
+                        foreach (var podrucjeKompozita in DodjelaPodrucja.listaCom)
+                        {
+                            podrucjeIduceRazine = (PodrucjeCom)podrucjeKompozita.podrucja.FirstOrDefault(p => p.PodrucjeID == podrucjeNajdonjeRazinePom.PodrucjeID);
+                            if (podrucjeIduceRazine != null)
+                            {
+                                podrucjeKompozita.ulicaPodrucja.Add(ulicaNadjena);
+                                podrucjeNajdonjeRazinePom = podrucjeKompozita;
+                                break;
+                            }
+
+                        }
+
+                    }
+                }
+            }
+
+            foreach (var podrucjaPopis in DodjelaPodrucja.listaCom)
+            {
+                
+            }
         }
 
         public static void IspisUlicaOtpad()
