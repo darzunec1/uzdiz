@@ -74,6 +74,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
             Ispis.OtpadPoPodrucju();
             Ispis.DododajPodrucjaUUlice();
+            Ispis.IspisOtpadaPoPodrucju();
 
             Odvoz.ProvediNaredbe();
 

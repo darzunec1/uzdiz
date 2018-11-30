@@ -140,12 +140,36 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
                 }
             }
 
-            foreach (var podrucjaPopis in DodjelaPodrucja.listaCom)
+        }
+        
+        public static void IspisOtpadaPoPodrucju()
+        {
+            foreach (var pod in DodjelaPodrucja.listaCom)
             {
-                
+                float mjesano = 0;
+                float bio = 0;
+                float staklo = 0;
+                float papir = 0;
+                float metal = 0;
+                foreach (var ulicaPod in pod.ulicaPodrucja)
+                {
+                    List<float> listaOtpadaTrenutnog = ulicaPod.Ulica.ListaOtpadaUlica;
+
+                    staklo += listaOtpadaTrenutnog[0];
+                    papir += listaOtpadaTrenutnog[1];
+                    metal += listaOtpadaTrenutnog[2];
+                    bio += listaOtpadaTrenutnog[3];
+                    mjesano += listaOtpadaTrenutnog[4];
+
+                }
+                var polje = new string[] { "Staklo: ", "Papir: ", "Metal: ", "Bio: ", "Mješano: " };
+                Console.WriteLine("+++++++++++++++++++++++++++");
+                Console.WriteLine("Otpad u podrucju " + pod.PodrucjeID + " " + pod.Naziv);
+                Console.WriteLine($"Staklo: {staklo} Papir: {papir} Metal: {metal}kg Bio: {bio}kg Mjesano: {mjesano}kg");
+                Console.WriteLine("+++++++++++++++++++++++++++");
+
             }
         }
-
         public static void IspisUlicaOtpad()
         {
             foreach (var ulica in Citac.ListaUlica)

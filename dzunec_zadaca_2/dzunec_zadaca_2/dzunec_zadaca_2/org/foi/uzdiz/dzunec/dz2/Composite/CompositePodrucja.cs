@@ -34,7 +34,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
 
         public class UlicaPodrucja : PodrucjeK
         {
-            Ulica Ulica;
+            public Ulica Ulica;
 
             public UlicaPodrucja(string Id, string Naziv, Ulica ulica) : base(Id, Naziv)
             {
@@ -55,7 +55,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
 
             public override void Odbaci(PodrucjeK podrucje) => throw new NotImplementedException();
 
-
+           
         }
 
         public class PodrucjeCom : PodrucjeK
