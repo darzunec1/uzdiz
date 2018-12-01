@@ -144,6 +144,12 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
         
         public static void IspisOtpadaPoPodrucju()
         {
+        
+
+
+            String heder = String.Format("|{0,30}|{1,30}|{2,30}|{3,30}|{4,30}|{5,30},|{6,30},", "ID", "Područje", "Staklo", "Papir", "Metal", "Bio", "Mješano");
+            Console.WriteLine(heder);
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
             foreach (var pod in DodjelaPodrucja.listaCom)
             {
                 float mjesano = 0;
@@ -162,13 +168,14 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
                     mjesano += listaOtpadaTrenutnog[4];
 
                 }
-                var polje = new string[] { "Staklo: ", "Papir: ", "Metal: ", "Bio: ", "Mješano: " };
-                Console.WriteLine("+++++++++++++++++++++++++++");
-                Console.WriteLine("Otpad u podrucju " + pod.PodrucjeID + " " + pod.Naziv);
-                Console.WriteLine($"Staklo: {staklo} Papir: {papir} Metal: {metal}kg Bio: {bio}kg Mjesano: {mjesano}kg");
-                Console.WriteLine("+++++++++++++++++++++++++++");
+                String ispis = String.Format("|{0,30}|{1,30}|{2,30}|{3,30}|{4,30}|{5,30},|{6,30},|", pod.PodrucjeID, pod.Naziv, staklo + "kg", papir + "kg", metal + "kg", bio + "kg", mjesano + "kg");
+
+                Console.WriteLine(ispis);
+
+
 
             }
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
         public static void IspisUlicaOtpad()
         {
