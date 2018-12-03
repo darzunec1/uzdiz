@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Models
 {
@@ -23,12 +22,13 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Mode
             {
                 Komanda = input[0];
                 BrojCiklusa = 0;
+                string[] polje = input[1].Split(',');
+                foreach (var v in polje)
+                {
+                    ListaVozilaDispecer.Add(v);
+                }
             }
-            string[] polje = input[1].Split(',');
-            foreach (var v in polje)
-            {
-                ListaVozilaDispecer.Add(v);
-            }
+
 
         }
     }

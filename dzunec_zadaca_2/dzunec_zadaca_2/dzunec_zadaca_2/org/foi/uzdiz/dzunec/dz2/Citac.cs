@@ -42,9 +42,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
         public void UcitajUlice(string[] sadrzajDatoteke)
         {
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Ispis sadržaja datoteke ulica: ");
-            Console.WriteLine("---------------------------------------------------");
             foreach (string red in sadrzajDatoteke.Skip(1))
             {
                 try
@@ -52,8 +49,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                     string[] polje = red.Split(';');
                     if (polje.Length == 6)
                     {
-  
-                        Console.WriteLine("\t" + red);
                         Ulica u = new Ulica(polje);
                         ListaUlica.Add(u);
                     }
@@ -106,9 +101,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
         public void UcitajVozila(string[] sadrzajDatoteke)
         {
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Ispis sadržaja datoteke Vozila: ");
-            Console.WriteLine("---------------------------------------------------");
             foreach (string red in sadrzajDatoteke.Skip(1))
             {
                 try
@@ -116,7 +108,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                     string[] polje = red.Split(';');
                     if (polje.Length == 6)
                     {
-                        Console.WriteLine("\t" + red);
                         Vozilo vozilo = new Vozilo(polje);
                         ListaVozila.Add(vozilo);
                     }
@@ -132,9 +123,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
         public void UcitajDispecer(string[] sadrzajDatoteke)
         {
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Ispis sadržaja datoteke Dispečer: ");
-            Console.WriteLine("---------------------------------------------------");
             foreach (string red in sadrzajDatoteke.Skip(1))
             {
                 string[] polje = red.Split(';');
@@ -142,7 +130,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                 {
                     if (polje.Length == 2)
                     {
-                        Console.WriteLine("\t" + red);
                         Dispecer dispecer = new Dispecer(polje);
                         ListaDispecer.Add(dispecer);
 
@@ -160,9 +147,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
         public void UcitajSpremnike(string[] sadrzajDatoteke)
         {
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Ispis sadržaja datoteke spremnika: ");
-            Console.WriteLine("---------------------------------------------------");
             foreach (string red in sadrzajDatoteke.Skip(1))
             {
                 try
@@ -170,7 +154,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                     string[] polje = red.Split(';');
                     if (polje.Length == 6)
                     {
-                        Console.WriteLine("\t" + red);
                         VrstaSpremnik s = new VrstaSpremnik(polje);
                         ListaVrstaSpremnika.Add(s);
                     }
@@ -189,9 +172,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
         public void UcitajPodrucja(string[] sadrzajDatoteke)
         {
-            Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine("Ispis sadržaja datoteke podrucja: ");
-            Console.WriteLine("---------------------------------------------------");
             foreach (string red in sadrzajDatoteke.Skip(1))
             {
                 try
@@ -199,7 +179,6 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                     string[] polje = red.Split(';');
                     if (polje.Length == 3)
                     {
-                        Console.WriteLine("\t" + red);
                         Podrucje podrucje = new Podrucje(polje);
                         ListaPodrucja.Add(podrucje);
                     }
@@ -215,6 +194,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
 
         int spremnikId = 1;
+
         public List<Spremnik> GenerirajSpremnikeMali ()
         {
             List<Spremnik> listaSpremnika = new List<Spremnik>();

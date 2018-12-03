@@ -21,6 +21,8 @@
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Composite\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Ispis\" />
     <Folder Include="org\foi\uzdiz\dzunec\dz2\Decorator\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\State\" />
+    <Folder Include="org\foi\uzdiz\dzunec\dz2\Iterator\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Methods\UnosKorisnika.cs" />

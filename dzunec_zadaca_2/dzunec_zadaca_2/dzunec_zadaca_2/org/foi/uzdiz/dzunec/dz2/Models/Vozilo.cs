@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 {
@@ -15,7 +14,13 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 
         public float Nosivost { get; set; }
 
+        public float Popunjenost { get; set; }
+
+        public string VrstaSpremnika { get; set; } 
+
         public List<string> Vozaci = new List<string>();
+
+        public List<int> redoslijedKretanja = new List<int>();
 
         public Vozilo(string[] input)
         {
@@ -30,6 +35,33 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
             {
                 Vozaci.Add(item);
             }
+        }
+
+        public void DodijeliVrstuSpremnika(Vozilo v)
+        {
+            if (v.Vrsta == 0)
+            {
+                v.VrstaSpremnika = "staklo";
+            }
+            else if (v.Vrsta == 1)
+            {
+                v.VrstaSpremnika = "papir";
+            }
+
+            else if (v.Vrsta == 2)
+            {
+                v.VrstaSpremnika = "metal";
+            }
+
+            else if (v.Vrsta == 3)
+            {
+                v.VrstaSpremnika = "bio";
+            }
+            else
+            {
+                v.VrstaSpremnika = "mješano";
+            }
+
         }
     }
 }
