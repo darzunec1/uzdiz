@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper
 {
     public class Odvoz
     {
-        public static List<Vozilo> listaVozilaZaSkupljanje = new List<Vozilo>();
+        static List<Vozilo> listaVozilaZaSkupljanje = new List<Vozilo>();
 
-        public static List<Spremnik> rasporedSpremnik = new List<Spremnik>();
 
         public Odvoz()
         {
@@ -69,8 +70,9 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
 
             DodijeliVrsteSpremnika();
 
-            DajRasporedSpremnika();
 
+            DajRasporedSpremnika();
+            
             if (brojCiklusa >= 0)
             {
                 SkupljajOtpad();
@@ -81,22 +83,26 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
             }
         }
 
+
         private static void DajRasporedSpremnika()
         {
+
             foreach (var vozilo in Citac.ListaVozila)
             {
+                Kolekcija kolekcija = new Kolekcija();
+
                 foreach (int brojUlice in vozilo.redoslijedKretanja)
                 {
                     Ulica ulica = Citac.ListaUlica[brojUlice];
-                    foreach (var spremnik in ulica.ListaSpremnikaUlice)
+                    List<Spremnik> listaSpremnika = ulica.ListaSpremnikaUlice.Where(s => s.Naziv == vozilo.VrstaSpremnika).ToList();
+                    for (int i = 0; i < listaSpremnika.Count; i++)
                     {
-                        if (!rasporedSpremnik.Contains(spremnik))
-                        {
-                            rasporedSpremnik.Add(spremnik);
-                        }
-
+                        kolekcija[i] = listaSpremnika[i];
                     }
                 }
+
+                Iterator iterator = kolekcija.KreirajIterator();
+                vozilo.Iterator = iterator;
             }
         }
 
@@ -110,7 +116,17 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
 
         private static void SkupljajOtpad()
         {
+            foreach (var vozilo in listaVozilaZaSkupljanje)
+            {
+                if (listaVozilaZaSkupljanje.Count > 0 && !vozilo.Iterator.JelGotovo )
+                {
+                    Spremnik s = vozilo.Iterator.TrenutniSpremnik;
+                    vozilo.Popunjenost += s.KolicinaOtpada;
+                    Console.WriteLine("Vozilo " + vozilo.Naziv + " Nosivost: " + vozilo.Nosivost + " Pokupilo: " + vozilo.Popunjenost);
+                    vozilo.Iterator.Sljedeci();
+                }
 
+            }
         }
 
         private static void DefinirajPreuzimanje()

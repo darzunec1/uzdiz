@@ -12,7 +12,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Mode
 
         public Dispecer(string[] input)
         {
-            if (input[0].Contains(' '))
+            if (input[0].Contains(" "))
             {
                 string[] podjela = input[0].Split(' ');
                 Komanda = podjela[0];

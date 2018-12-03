@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 {
-    public class Vozilo
+    class Vozilo
     {
         public string Id { get; set; }
 
@@ -16,11 +17,15 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 
         public float Popunjenost { get; set; }
 
-        public string VrstaSpremnika { get; set; } 
+        public string VrstaSpremnika { get; set; }
+
+        public Iterator Iterator { get; set; }
 
         public List<string> Vozaci = new List<string>();
 
         public List<int> redoslijedKretanja = new List<int>();
+
+        
 
         public Vozilo(string[] input)
         {

@@ -1,90 +1,88 @@
-﻿using System;
-using System.Collections;
-using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
+﻿    using System;
+    using System.Collections;
+    using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
 
-namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Iterator
-{
-   
-
-        interface IApstraktnaKolekcija
-        {
-            Iterator KreirajIterator();
-        }
-
-        class Kolekcija : IApstraktnaKolekcija
-        {
-            private ArrayList _spremnik = new ArrayList();
-
-            public Iterator KreirajIterator()
+    namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2
+    {
+            interface IApstraktnaKolekcija
             {
-                return new Iterator(this);
+                Iterator KreirajIterator();
             }
 
-            public int Count
+            class Kolekcija : IApstraktnaKolekcija
             {
-                get { return _spremnik.Count; }
+                private ArrayList _spremnik = new ArrayList();
+
+                public Iterator KreirajIterator()
+                {
+                    return new Iterator(this);
+                }
+
+                public int Count
+                {
+                    get { return _spremnik.Count; }
+                }
+
+                public object this[int indeks]
+                {
+                    get { return _spremnik[indeks]; }
+                    set { _spremnik.Add(value); }
+                }
             }
 
-            public object this[int indeks]
+            interface IAbstractIterator
             {
-                get { return _spremnik[indeks]; }
-                set { _spremnik.Add(value); }
-            }
-        }
+                Spremnik Prvi();
 
-        interface IAbstractIterator
-        {
-            Spremnik Prvi();
+                Spremnik Sljedeci();
 
-            Spremnik Sljedeci();
+                bool JelGotovo { get; }
 
-            bool JelGotovo { get; }
-
-            Spremnik TrenutniSpremnik { get; }
-        }
-
-        class Iterator : IAbstractIterator
-        {
-            private Kolekcija _kolekcija;
-            private int _trenutno = 0;
-            private int _korak = 1;
-
-            public Iterator(Kolekcija kolekcija)
-            {
-                this._kolekcija = kolekcija;
+                Spremnik TrenutniSpremnik { get; }
             }
 
-            public Spremnik Prvi()
+            class Iterator : IAbstractIterator
             {
-                _trenutno = 0;
-                return _kolekcija[_trenutno] as Spremnik;
-            }
+                private Kolekcija _kolekcija;
+                private int _trenutno = 0;
+                private int _korak = 1;
 
-            public Spremnik Sljedeci()
-            {
-                _trenutno += _korak;
-                if (!JelGotovo)
+                public Iterator(Kolekcija kolekcija)
+                {
+                    this._kolekcija = kolekcija;
+                }
+
+                public Spremnik Prvi()
+                {
+                    _trenutno = 0;
                     return _kolekcija[_trenutno] as Spremnik;
-                else
-                    return null;
-            }
+                }
 
-            public int Step
-            {
-                get { return _korak; }
-                set { _korak = value; }
-            }
+                public Spremnik Sljedeci()
+                {
+                    _trenutno += _korak;
+                    if (!JelGotovo)
+                        return _kolekcija[_trenutno] as Spremnik;
+                    else
+                        return null;
+                }
 
-            public Spremnik TrenutniSpremnik
-            {
-                get { return _kolekcija[_trenutno] as Spremnik; }
-            }
+                public int Step
+                {
+                    get { return _korak; }
+                    set { _korak = value; }
+                }
 
-            public bool JelGotovo
-            {
-                get { return _trenutno >= _kolekcija.Count; }
+                public Spremnik TrenutniSpremnik
+                {
+                    get { return _kolekcija[_trenutno] as Spremnik; }
+                }
+
+                public bool JelGotovo
+                {
+                    get { return _trenutno >= _kolekcija.Count -1; }
+                }
             }
         }
-    }
 
 

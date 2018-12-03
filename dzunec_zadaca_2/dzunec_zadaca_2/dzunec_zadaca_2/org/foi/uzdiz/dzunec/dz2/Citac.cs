@@ -8,7 +8,7 @@ using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Models;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 {
-    public class Citac
+    class Citac
     {
         public static List<Ulica> ListaUlica { get; set; } = new List<Ulica>();
 
