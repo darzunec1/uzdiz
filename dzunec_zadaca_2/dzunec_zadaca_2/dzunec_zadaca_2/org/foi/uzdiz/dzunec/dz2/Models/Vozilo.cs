@@ -17,7 +17,11 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
 
         public float Popunjenost { get; set; }
 
+        public float Dostupno { get; set; }
+
         public string VrstaSpremnika { get; set; }
+
+        public string Status { get; set; }
 
         public Iterator Iterator { get; set; }
 
@@ -34,6 +38,8 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models
             Tip = int.Parse(input[2]);
             Vrsta = int.Parse(input[3]);
             Nosivost = float.Parse(input[4]);
+            Status = "Parking";
+            Dostupno = Nosivost;
 
             string[] polje = input[5].Split(',');
             foreach (var item in polje)

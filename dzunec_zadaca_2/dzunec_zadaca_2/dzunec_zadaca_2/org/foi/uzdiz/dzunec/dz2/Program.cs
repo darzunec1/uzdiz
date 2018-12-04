@@ -25,19 +25,17 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
             try
             {
                 datotekaParametra = args[0];
-
-                vrstaIspisa = int.Parse(args[1]);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Neispravni parametri! " + ex.Message);
             }
 
-
             //inicijalizacija
             //dohvaćanje instance i putanje
             putanjaDatoteke = Path.GetDirectoryName(datotekaParametra);
             singletonParametri = SingletonParametri.DohvatiInstancu(datotekaParametra);
+            vrstaIspisa = int.Parse(singletonParametri.DohvatiParametar("ispis"));
 
             //Generiranje slučajnog broja!
             int sjemeGeneratora = int.Parse(singletonParametri.DohvatiParametar("sjemeGeneratora"));

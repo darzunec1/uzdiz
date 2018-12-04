@@ -52,6 +52,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
 
         }
 
+       
         public static void IspisSpremnika()
         {
             foreach (var spr in Citac.ListaSvihSpremnika)
