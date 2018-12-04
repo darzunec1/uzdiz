@@ -18,8 +18,17 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                     float dostupnoStaklo = spremnik.Nosivost - spremnik.KolicinaOtpada;
                     foreach (var korisnik in spremnik.ListaKorisnika)
                     {
-                        spremnik.KolicinaOtpada += korisnik.Staklo;
-                        korisnik.Staklo = 0;
+                        if (dostupnoStaklo > korisnik.Staklo)
+                        {
+                            spremnik.KolicinaOtpada += korisnik.Staklo;
+                            korisnik.Staklo = 0;
+                        }
+                        else
+                        {
+                            spremnik.KolicinaOtpada = spremnik.Nosivost;
+                            korisnik.Staklo = korisnik.Staklo - dostupnoStaklo;
+                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                        }
                     }
                 }
 
@@ -29,8 +38,17 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
 
                     foreach (var korisnik in spremnik.ListaKorisnika)
                     {
-                        spremnik.KolicinaOtpada += korisnik.Papir;
-                        korisnik.Papir = 0;
+                        if (dostupnoPapir > korisnik.Papir)
+                        {
+                            spremnik.KolicinaOtpada += korisnik.Papir;
+                            korisnik.Papir = 0;
+                        }
+                        else
+                        {
+                            spremnik.KolicinaOtpada = spremnik.Nosivost;
+                            korisnik.Papir = korisnik.Papir - dostupnoPapir;
+                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                        }
                     }
                 }
 
@@ -39,8 +57,18 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                     float dostupnoMetal = spremnik.Nosivost - spremnik.KolicinaOtpada;
                     foreach (var korisnik in spremnik.ListaKorisnika)
                     {
-                        spremnik.KolicinaOtpada += korisnik.Metal;
-                        korisnik.Metal = 0;
+                        if (dostupnoMetal > korisnik.Metal)
+                        {
+                            spremnik.KolicinaOtpada += korisnik.Metal;
+                            korisnik.Metal = 0;
+                        }
+                        else
+                        {
+                            spremnik.KolicinaOtpada = spremnik.Nosivost;
+                            korisnik.Metal = korisnik.Metal - dostupnoMetal;
+                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                        }
+
                     }
                 }
                 else if (spremnik.Naziv == "bio")
@@ -48,8 +76,17 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                     float dostupnoBio = spremnik.Nosivost - spremnik.KolicinaOtpada;
                     foreach (var korisnik in spremnik.ListaKorisnika)
                     {
-                        spremnik.KolicinaOtpada += korisnik.Bio;
-                        korisnik.Bio = 0;
+                        if (dostupnoBio > korisnik.Bio)
+                        {
+                            spremnik.KolicinaOtpada += korisnik.Bio;
+                            korisnik.Bio = 0;
+                        }
+                        else
+                        {
+                            spremnik.KolicinaOtpada = spremnik.Nosivost;
+                            korisnik.Bio = korisnik.Bio - dostupnoBio;
+                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                        }
                     }
                 }
                 else if (spremnik.Naziv == "mješano")
@@ -57,8 +94,18 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                     float dostupnoMjesano = spremnik.Nosivost - spremnik.KolicinaOtpada;
                     foreach (var korisnik in spremnik.ListaKorisnika)
                     {
-                        spremnik.KolicinaOtpada += korisnik.Mjesano;
-                        korisnik.Mjesano = 0;
+                        if (dostupnoMjesano > korisnik.Mjesano)
+                        {
+                            spremnik.KolicinaOtpada += korisnik.Mjesano;
+                            korisnik.Mjesano = 0;
+                        }
+                        else
+                        {
+                            spremnik.KolicinaOtpada = spremnik.Nosivost;
+                            korisnik.Mjesano = korisnik.Mjesano - dostupnoMjesano;
+                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                        }
+
                     }
                 }
 

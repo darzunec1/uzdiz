@@ -10,7 +10,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
     }
 
     //singelton klasa koja nasljeđuje interface
-    class SingletonParametri : IParametar
+    public class SingletonParametri : IParametar
     {
         private static SingletonParametri instancaParametra = null;
         private Dictionary<string, string> parametri = new Dictionary<string, string>();

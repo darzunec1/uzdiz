@@ -10,6 +10,8 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
     {
         static List<Vozilo> listaVozilaZaSkupljanje = new List<Vozilo>();
 
+        public static int brojacCiklusa = 0;
+
 
         public Odvoz()
         {
@@ -75,7 +77,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
             
             if (brojCiklusa >= 0)
             {
-                SkupljajOtpad();
+                SkupljajOtpad(brojCiklusa);
             }
             else
             {
@@ -114,19 +116,29 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
             }
         }
 
-        private static void SkupljajOtpad()
+        private static void SkupljajOtpad(int brojCiklusa)
         {
-            foreach (var vozilo in listaVozilaZaSkupljanje)
+            while (brojCiklusa > brojacCiklusa)
             {
-                if (listaVozilaZaSkupljanje.Count > 0 && !vozilo.Iterator.JelGotovo )
+                foreach (var vozilo in listaVozilaZaSkupljanje)
                 {
-                    Spremnik s = vozilo.Iterator.TrenutniSpremnik;
-                    vozilo.Popunjenost += s.KolicinaOtpada;
-                    Console.WriteLine("Vozilo " + vozilo.Naziv + " Nosivost: " + vozilo.Nosivost + " Pokupilo: " + vozilo.Popunjenost);
-                    vozilo.Iterator.Sljedeci();
-                }
+                    if (listaVozilaZaSkupljanje.Count > 0 && !vozilo.Iterator.JelGotovo)
+                    {
+                        Spremnik s = vozilo.Iterator.TrenutniSpremnik;
+                        Console.WriteLine("-----------------------------------------------------------------------");
+                        Console.WriteLine(" " + s.Id + " " + s.Naziv + "  Spremnik prije: " + s.KolicinaOtpada);
+                        vozilo.Popunjenost += s.KolicinaOtpada;
+                        s.KolicinaOtpada = 0;
+                        Console.WriteLine("             Spremnik poslije: " + s.KolicinaOtpada);
+                        vozilo.Iterator.Sljedeci();
+                        Console.WriteLine(brojacCiklusa + " CIKLUS" + " Vozilo " + vozilo.Naziv + " Nosivost: " + vozilo.Nosivost + " Pokupilo: " + vozilo.Popunjenost);
+                        Console.WriteLine("-----------------------------------------------------------------------");
+                    }
+                    brojacCiklusa++;
 
+                }
             }
+
         }
 
         private static void DefinirajPreuzimanje()

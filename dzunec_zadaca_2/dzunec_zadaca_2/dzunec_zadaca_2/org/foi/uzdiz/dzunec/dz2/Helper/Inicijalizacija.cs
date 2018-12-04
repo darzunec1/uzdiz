@@ -8,16 +8,12 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
         {
         }
 
-        public static void Inicijaliziraj()
-        {
-            InicijalizacijaLoga();
-        }
-
-        private static void InicijalizacijaLoga()
+        public static void Inicijaliziraj(SingletonParametri parametri, string putanjaDatoteke)
         {
             Console.WriteLine("+++++++++++++++++++++++++++++++++");
-            Log.Init("Log.txt");
+            Log.Init(parametri.DohvatiParametar("izlaz"), putanjaDatoteke);
             Console.WriteLine("Inicijalizirana datoteka za izlaz");
         }
+
     }
 }
