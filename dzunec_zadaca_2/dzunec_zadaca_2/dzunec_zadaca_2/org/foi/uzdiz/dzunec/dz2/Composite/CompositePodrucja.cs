@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Composite;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Composite
 {
@@ -45,7 +46,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
 
             public override void Ispis(int uvlaka)
             {
-                Console.WriteLine(new String('-', uvlaka) + " " + Naziv);
+                IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni(new String('-', uvlaka) + " " + Naziv);
 
             }
             public List<float> DajSmece()
@@ -78,7 +79,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Comp
             {
 
 
-                Console.WriteLine(new String('-', uvlaka) + "+ " + Naziv);
+                IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni(new String('-', uvlaka) + "+ " + Naziv);
 
                 // Display each child element on this node
                 foreach (PodrucjeK d in podrucja)

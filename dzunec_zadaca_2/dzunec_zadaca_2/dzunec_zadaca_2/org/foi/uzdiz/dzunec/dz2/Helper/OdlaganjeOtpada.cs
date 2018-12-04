@@ -1,4 +1,5 @@
 ﻿using System;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola;
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper
 {
     public class OdlaganjeOtpada
@@ -27,7 +28,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                         {
                             spremnik.KolicinaOtpada = spremnik.Nosivost;
                             korisnik.Staklo = korisnik.Staklo - dostupnoStaklo;
-                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                            IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Spremnik " + spremnik.Id + " je puni!");
                         }
                     }
                 }
@@ -47,7 +48,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                         {
                             spremnik.KolicinaOtpada = spremnik.Nosivost;
                             korisnik.Papir = korisnik.Papir - dostupnoPapir;
-                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                            IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Spremnik " + spremnik.Id + " je puni!");
                         }
                     }
                 }
@@ -66,7 +67,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                         {
                             spremnik.KolicinaOtpada = spremnik.Nosivost;
                             korisnik.Metal = korisnik.Metal - dostupnoMetal;
-                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                            IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Spremnik " + spremnik.Id + " je puni!");
                         }
 
                     }
@@ -85,7 +86,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                         {
                             spremnik.KolicinaOtpada = spremnik.Nosivost;
                             korisnik.Bio = korisnik.Bio - dostupnoBio;
-                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                            IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Spremnik " + spremnik.Id + " je puni!");
                         }
                     }
                 }
@@ -103,7 +104,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                         {
                             spremnik.KolicinaOtpada = spremnik.Nosivost;
                             korisnik.Mjesano = korisnik.Mjesano - dostupnoMjesano;
-                            Console.WriteLine("Spremnik " + spremnik.Id + " je puni!");
+                            IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Spremnik " + spremnik.Id + " je puni!");
                         }
 
                     }

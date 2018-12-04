@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper;
-using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispis;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola;
 
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
@@ -28,7 +28,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Neispravni parametri! " + ex.Message);
+                IspisKonzola.IspisUvjetni("Neispravni parametri! " + ex.Message);
             }
 
             //inicijalizacija
@@ -70,26 +70,26 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 
             //Generiranje otpada korisnicima
 
-            Ispis.IspisKorisnikaOtpad(vrstaIspisa);
+            IspisKonzola.IspisKorisnikaOtpad();
 
             OdlaganjeOtpada.KorisniciOdlazuOtpad();
 
-            Ispis.IspisSpremnikaPoUlicama(vrstaIspisa);
-            Ispis.IspisUlicaOtpad(vrstaIspisa);
+            IspisKonzola.IspisSpremnikaPoUlicama();
+            IspisKonzola.IspisUlicaOtpad();
 
 
 
             DodjelaPodrucja.DodijeliPotpodrucja();
 
-            Ispis.IspisPodrucjaComposite(vrstaIspisa);
-            Ispis.DodajPodrucjaUUlice();
-            Ispis.IspisOtpadaPoPodrucju();
+            IspisKonzola.IspisPodrucjaComposite();
+            IspisKonzola.DodajPodrucjaUUlice();
+            IspisKonzola.IspisOtpadaPoPodrucju();
 
             Odvoz.ProvediNaredbe();
 
             //ispis podrucja
 
-            PonudaKontejnera.Ponuda(vrstaIspisa);
+            PonudaKontejnera.Ponuda();
 
             System.Console.ReadKey();
 

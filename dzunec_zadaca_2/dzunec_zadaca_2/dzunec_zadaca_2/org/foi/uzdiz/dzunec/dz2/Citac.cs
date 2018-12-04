@@ -5,6 +5,7 @@ using System.Linq;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Composite;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Models;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
 {
@@ -52,11 +53,11 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         Ulica u = new Ulica(polje);
                         ListaUlica.Add(u);
                     }
-                    else Console.WriteLine("Nesipravan redak! " + red);
+                    else IspisKonzola.IspisUvjetni("Nesipravan redak! " + red);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Neispravan redak!!!! " + red + ex.Message);
+                    IspisKonzola.IspisUvjetni("Neispravan redak!!!! " + red + ex.Message);
                 }
 
               
@@ -111,11 +112,11 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         Vozilo vozilo = new Vozilo(polje);
                         ListaVozila.Add(vozilo);
                     }
-                    else Console.WriteLine("Neispravan redak! " + red);
+                    else IspisKonzola.IspisUvjetni("Neispravan redak! " + red);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Neispravan redak!!!! " + red + ex.Message);
+                    IspisKonzola.IspisUvjetni("Neispravan redak!!!! " + red + ex.Message);
                 }
 
             }
@@ -134,12 +135,12 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         ListaDispecer.Add(dispecer);
 
                     }
-                    else Console.WriteLine("Neispravan redak! " + red);
+                    else IspisKonzola.IspisUvjetni("Neispravan redak! " + red);
 
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Neispravan redak!!!! " + red + " " + ex.Message);
+                    IspisKonzola.IspisUvjetni("Neispravan redak!!!! " + red + " " + ex.Message);
                 }
 
             }
@@ -159,12 +160,12 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                     }
                     else
                     {
-                        Console.WriteLine("Neispravan redak! " + red);
+                        IspisKonzola.IspisUvjetni("Neispravan redak! " + red);
                     }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Neispravan redak! " + red + " " + ex.Message);
+                    IspisKonzola.IspisUvjetni("Neispravan redak! " + red + " " + ex.Message);
                 }
 
             }
@@ -182,11 +183,11 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2
                         Podrucje podrucje = new Podrucje(polje);
                         ListaPodrucja.Add(podrucje);
                     }
-                    else Console.WriteLine("Neispravan redak! " + red);
+                    else IspisKonzola.IspisUvjetni("Neispravan redak! " + red);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Neispravan redak!!!! "+ red + ex.Message);
+                    IspisKonzola.IspisUvjetni("Neispravan redak!!!! "+ red + ex.Message);
                 }
 
             }

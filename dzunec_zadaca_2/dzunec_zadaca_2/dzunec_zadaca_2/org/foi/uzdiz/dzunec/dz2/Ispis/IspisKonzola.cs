@@ -5,90 +5,88 @@ using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Composite;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper;
 using static org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Composite.CompositePodrucja;
 
-namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispis
+namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola
 {
-    public class Ispis
+    public class IspisKonzola
     {
-        public Ispis()
+        public IspisKonzola()
         {
         }
 
-        public static void IspisKorisnikaOtpad(int ispis)
+        public static void IspisKorisnikaOtpad()
         {
-            if (ispis == 0)
-            {
 
                 foreach (var ulica in Citac.ListaUlica)
                 {
-                    Console.WriteLine("");
-                    Console.WriteLine("ID ulice: " + ulica.Id + " Naziv ulice: " + ulica.Naziv);
-                    Console.WriteLine("---------------------------------------------------------------------------------");
+                    IspisKonzola.IspisUvjetni("");
+                    IspisKonzola.IspisUvjetni("ID ulice: " + ulica.Id + " Naziv ulice: " + ulica.Naziv);
+                    IspisKonzola.IspisUvjetni("---------------------------------------------------------------------------------");
                     foreach (var korisnik in ulica.ListaMalihKorisnika)
                     {
 
-                        Console.WriteLine("++++++++++++++++++++++++++ MALI KORISNIK +++++++++++++++++++++++++++");
-                        Console.WriteLine($"  Sifra korisnika: {korisnik.Id} ");
-                        Console.WriteLine($"  Staklo:{korisnik.Staklo}kg Papir:{korisnik.Papir}kg Metal:{korisnik.Metal}kg Bio:{korisnik.Bio}kg Mješano:{korisnik.Mjesano}kg");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisUvjetni("++++++++++++++++++++++++++ MALI KORISNIK +++++++++++++++++++++++++++");
+                        IspisKonzola.IspisUvjetni($"  Sifra korisnika: {korisnik.Id} ");
+                        IspisKonzola.IspisUvjetni($"  Staklo:{korisnik.Staklo}kg Papir:{korisnik.Papir}kg Metal:{korisnik.Metal}kg Bio:{korisnik.Bio}kg Mješano:{korisnik.Mjesano}kg");
+                        IspisKonzola.IspisUvjetni("");
                     }
 
                     foreach (var korisnik in ulica.ListaSrednjihKorisnika)
                     {
-                        Console.WriteLine("++++++++++++++++++++++++++ SREDNJI KORISNIK ++++++++++++++++++++++++++");
-                        Console.WriteLine($"  Sifra korisnika: {korisnik.Id} ");
-                        Console.WriteLine($"  Staklo:{korisnik.Staklo}kg Papir:{korisnik.Papir}kg Metal:{korisnik.Metal}kg Bio:{korisnik.Bio}kg Mješano:{korisnik.Mjesano}kg");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisUvjetni("++++++++++++++++++++++++++ SREDNJI KORISNIK ++++++++++++++++++++++++++");
+                        IspisKonzola.IspisUvjetni($"  Sifra korisnika: {korisnik.Id} ");
+                        IspisKonzola.IspisUvjetni($"  Staklo:{korisnik.Staklo}kg Papir:{korisnik.Papir}kg Metal:{korisnik.Metal}kg Bio:{korisnik.Bio}kg Mješano:{korisnik.Mjesano}kg");
+                        IspisKonzola.IspisUvjetni("");
                     }
                     foreach (var korisnik in ulica.ListaVelikihKorisnika)
                     {
-                        Console.WriteLine("++++++++++++++++++++++++++ VELIKI KORISNIK ++++++++++++++++++++++++++");
-                        Console.WriteLine($"  Sifra korisnika: {korisnik.Id} ");
-                        Console.WriteLine($"  Staklo:{korisnik.Staklo}kg Papir:{korisnik.Papir}kg Metal:{korisnik.Metal}kg Bio:{korisnik.Bio}kg Mješano:{korisnik.Mjesano}kg");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisUvjetni("++++++++++++++++++++++++++ VELIKI KORISNIK ++++++++++++++++++++++++++");
+                        IspisKonzola.IspisUvjetni($"  Sifra korisnika: {korisnik.Id} ");
+                        IspisKonzola.IspisUvjetni($"  Staklo:{korisnik.Staklo}kg Papir:{korisnik.Papir}kg Metal:{korisnik.Metal}kg Bio:{korisnik.Bio}kg Mješano:{korisnik.Mjesano}kg");
+                        IspisKonzola.IspisUvjetni("");
                     }
-                }
 
             }
 
         }
 
-       
+        public static void IspisUvjetni(string tekst)
+        {
+            if (Program.vrstaIspisa == 0)
+            {
+                Console.WriteLine(tekst);
+            }
+        }
         public static void IspisSpremnika()
         {
             foreach (var spr in Citac.ListaSvihSpremnika)
             {
-                Console.WriteLine($"    Id spremnika: {spr.Id} Naziv spremnika: {spr.Naziv} Nosivost: {spr.Nosivost}kg KOLICINA OTPADA: {spr.KolicinaOtpada}kg");
-                Console.WriteLine("        Status: " + spr.Status);
-                Console.WriteLine("     ------------------------------------------------------------------------------");
+                IspisKonzola.IspisUvjetni($"    Id spremnika: {spr.Id} Naziv spremnika: {spr.Naziv} Nosivost: {spr.Nosivost}kg KOLICINA OTPADA: {spr.KolicinaOtpada}kg");
+                IspisKonzola.IspisUvjetni("        Status: " + spr.Status);
+                IspisKonzola.IspisUvjetni("     ------------------------------------------------------------------------------");
             }
         }
 
-        public static void IspisSpremnikaPoUlicama(int ispis)
+        public static void IspisSpremnikaPoUlicama()
         {
-            if (ispis == 0)
-            {
+
                 foreach (var ulica in Citac.ListaUlica)
                 {
-                    Console.WriteLine("");
-                    Console.WriteLine("Ulica: " + ulica.Id + " Naziv ulice: " + ulica.Naziv );
-                    Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                    IspisKonzola.IspisUvjetni("");
+                    IspisKonzola.IspisUvjetni("Ulica: " + ulica.Id + " Naziv ulice: " + ulica.Naziv );
+                    IspisKonzola.IspisUvjetni("-----------------------------------------------------------------------------------------------------------------------");
                     foreach (var spremnik in ulica.ListaSpremnikaUlice)
                     {
-                        Console.WriteLine($"   Id spremnika: {spremnik.Id} Naziv spremnika: {spremnik.Naziv} Nosivost: {spremnik.Nosivost}kg KOLICINA OTPADA: {spremnik.KolicinaOtpada}kg");
-                        Console.WriteLine("    ------------------------------------------------------------------------------");
+                        IspisKonzola.IspisUvjetni($"   Id spremnika: {spremnik.Id} Naziv spremnika: {spremnik.Naziv} Nosivost: {spremnik.Nosivost}kg KOLICINA OTPADA: {spremnik.KolicinaOtpada}kg");
+                        IspisKonzola.IspisUvjetni("    ------------------------------------------------------------------------------");
                     }
 
                 }
-            }
-
         }
 
-        public static void IspisPodrucjaComposite(int ispis)
+        public static void IspisPodrucjaComposite()
         {
-            if (ispis == 0)
-            {
-                Console.WriteLine("");
-                Console.WriteLine("Ispis područja: ");
+                IspisKonzola.IspisUvjetni("");
+                IspisKonzola.IspisUvjetni("Ispis područja: ");
 
                 foreach (var podrucje in DodjelaPodrucja.listaCom)
                 {
@@ -106,9 +104,8 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
                     }
 
                 }
-                Console.WriteLine("");
-            }
-         
+                IspisKonzola.IspisUvjetni("");
+
         }
 
         public static void DodajPodrucjaUUlice()
@@ -178,27 +175,24 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Ispi
             }
             Console.WriteLine("");
         }
-        public static void IspisUlicaOtpad(int ispis)
+        public static void IspisUlicaOtpad()
         {
 
-            
                 foreach (var ulica in Citac.ListaUlica)
                 {
                     List<float> listaOtpadaUlice = ulica.UlicaOtpad(ulica);
                     var polje = new string[] { "Staklo: ", "Papir: ", "Metal: ", "Bio: ", "Mješano: " };
 
-                if (ispis == 0)
-                {
-                    Console.WriteLine("Otpad u ulici " + ulica.Id + " " + ulica.Naziv);
-                    Console.WriteLine("+++++++++++++++++++++++++++++++++++++");
+
+                    IspisKonzola.IspisUvjetni("Otpad u ulici " + ulica.Id + " " + ulica.Naziv);
+                    IspisKonzola.IspisUvjetni("+++++++++++++++++++++++++++++++++++++");
                     int i = 0;
                     foreach (var otpad in listaOtpadaUlice)
                     {
-                        Console.WriteLine("  " + polje[i] + otpad + "kg");
+                        IspisKonzola.IspisUvjetni("  " + polje[i] + otpad + "kg");
                         i++;
                     }
-                    Console.WriteLine("");
-                }
+                        IspisKonzola.IspisUvjetni("");
                 }
             
 

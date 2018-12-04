@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.Models;
 using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2;
+using org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.IspisKonzola;
 
 namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Helper
 {
@@ -30,38 +31,40 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                 switch (naredba)
                 {
                     case "PRIPREMI":
-                        Console.WriteLine("- - - > NAREDBA: Pripremi vozila");
-                        Console.WriteLine("");
+
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("- - - > NAREDBA: Pripremi vozila");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("");
                         PripremaVozila(dispecer.ListaVozilaDispecer);
                         break;
                     case "KRENI":
-                        Console.WriteLine("- - - > NAREDBA: Vozila krećeju pokupljati otpad");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("- - - > NAREDBA: Vozila krećeju pokupljati otpad");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("");
                         VozilaKrecu(dispecer.BrojCiklusa);
                         brojacCiklusa = 0;
                         break;
                     case "KVAR":
-                        Console.WriteLine("- - - > NAREDBA: Kvar vozila");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("- - - > NAREDBA: Kvar vozila");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("");
                         VozilaKvar(dispecer.ListaVozilaDispecer);
                         break;
                     case "STATUS":
-                        Console.WriteLine("- - - > NAREDBA: Status svih vozila");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("- - - > NAREDBA: Status svih vozila");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("");
                         StatusVozila(dispecer.ListaVozilaDispecer);
                         break;
                     case "ISPRAZNI":
-                        Console.WriteLine("- - - > NAREDBA: Pražnjenje vozila");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("- - - > NAREDBA: Pražnjenje vozila");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("");
                         PraznjenjeVozila(dispecer.ListaVozilaDispecer);
                         break;
                     case "KONTROLA":
-                        Console.WriteLine("- - - > NAREDBA: Vozilo ide na kontrolu");
-                        Console.WriteLine("");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("- - - > NAREDBA: Vozilo ide na kontrolu");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("");
                         PraznjenjeVozila(dispecer.ListaVozilaDispecer);
                         break;
 
-                    default: Console.WriteLine("Ne postoji naredba");
+                    default:
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Ne postoji naredba");
                         break;
                 }
             }
@@ -69,10 +72,10 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
 
         private static void StatusVozila(List<string> listaVozilaDispecer)
         {
-            Console.WriteLine("Ispis statusa sih vozila: ");
+            IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Ispis statusa sih vozila: ");
             foreach (var vozilo in Citac.ListaVozila)
             {
-                Console.WriteLine("Vozilo: " + vozilo.Id + " " + vozilo.Naziv + " Status:" + vozilo.Status);
+                IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Vozilo: " + vozilo.Id + " " + vozilo.Naziv + " Status:" + vozilo.Status);
             }
         }
 
@@ -85,7 +88,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                     vozilo.Dostupno = vozilo.Nosivost;
                     vozilo.Popunjenost = 0;
 
-                    Console.WriteLine("Vozilo " + vozilo.Id + " " + vozilo.Naziv + " je ispraznilo svoj otpad!");
+                    IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Vozilo " + vozilo.Id + " " + vozilo.Naziv + " je ispraznilo svoj otpad!");
                 }
             }
         }
@@ -104,7 +107,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
             {
                 if (vozilo.Status == "Kvar")
                 {
-                    Console.WriteLine("Vozilo " + vozilo.Id + " " + vozilo.Naziv + "  Status: " + vozilo.Status);
+                    IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Vozilo " + vozilo.Id + " " + vozilo.Naziv + "  Status: " + vozilo.Status);
                 }
             }
         }
@@ -166,12 +169,12 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                         {
                             if (vozilo.Dostupno > s.KolicinaOtpada)
                             {
-                                Console.WriteLine("-----------------------------------------------------------------------");
+                                IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("-----------------------------------------------------------------------");
                                 vozilo.Popunjenost += s.KolicinaOtpada;
                                 vozilo.Dostupno = vozilo.Nosivost - vozilo.Popunjenost;
                                 s.KolicinaOtpada = 0;
                                 vozilo.Iterator.Sljedeci();
-                                Console.WriteLine(ciklus + " CIKLUS" + " Vozilo " + vozilo.Naziv + " Nosivost: " + vozilo.Nosivost + " Pokupilo: " + vozilo.Popunjenost);
+                                IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni(ciklus + " CIKLUS" + " Vozilo " + vozilo.Naziv + " Nosivost: " + vozilo.Nosivost + " Pokupilo: " + vozilo.Popunjenost);
                                 ciklus++;
 
                             }
@@ -247,7 +250,7 @@ namespace org.foi.uzdiz.dzunec.dz2.dzunec_zadaca_2.org.foi.uzdiz.dzunec.dz2.Help
                     {
                         vozilo.Status = "Pripremljeno";
                         listaVozilaZaSkupljanje.Add(vozilo);
-                        Console.WriteLine("Vozilo " + vozilo.Id + " je dodano u listu pripremljenih vozila!");
+                        IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisKonzola.IspisUvjetni("Vozilo " + vozilo.Id + " je dodano u listu pripremljenih vozila!");
                     }
                 }
             }
